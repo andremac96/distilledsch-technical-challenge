@@ -6,7 +6,7 @@ const CountryCard = ({ country: { name } }) => {
             <Link
                 href={{
                     pathname: '/countries/[name]',
-                    query: { name },
+                    query: { name: encodeURIComponent(name.toLowerCase()) },
                 }}
             >
                 {name}

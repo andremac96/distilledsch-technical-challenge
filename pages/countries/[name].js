@@ -1,12 +1,27 @@
-export default function Post({ country }) {
+export default function Post({ country: { flag, name, capital, currencies, population, languages, }, borderCountries }) {
   return (
     <div>
-      {country.name}
+      {name}
+      <ul>
+        <li>{flag}</li>
+        <li>{capital}</li>
+        <li>{currencies[0].code}</li>
+        <li>{population}</li>
+        <li>{languages[0].name}</li>
+      </ul>
+
+      <h2>Borders:</h2>
+      {borderCountries.length
+        ? borderCountries.map(country => (
+          <div>
+            <p>{country.name}</p>
+            <p>{country.population}</p>
+            <p>{country.flag}</p>
+          </div>
+        )) : null}
     </div>
   )
 }
-
-
 
 export async function getServerSideProps(context) {
   const { name } = context.params;
@@ -21,7 +36,14 @@ export async function getServerSideProps(context) {
     }
   }
 
-  return {
-    props: { country }
-  }
+  const { borders } = country;
+
+  const borderCountries = await Promise.all(
+    borders.map(async (border) => {
+      const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${border}`);
+      return await response.json();
+    })
+  );
+
+  return { props: { country, borderCountries } }
 }
