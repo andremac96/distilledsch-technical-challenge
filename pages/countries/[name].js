@@ -24,7 +24,7 @@ export default function Post({ country: { flag, name, capital, currencies, popul
 }
 
 export async function getServerSideProps(context) {
-  const { name } = context.params;
+  const name = encodeURIComponent(context.params.name.replace('-', ' '));
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`)
   const countryRes = await res.json();
 

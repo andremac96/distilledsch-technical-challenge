@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import CountryCard from '../components/CountryCard';
+import Layout from '../styles/Layout';
 
 export default function Home({ countries }) {
   return (
-    <div> 
+    <Layout> 
       {countries.map(country => (
         <CountryCard country={country} key={country.name}/>
       ))}
-    </div>
+    </Layout>
+
   )
 }
 
