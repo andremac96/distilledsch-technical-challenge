@@ -11,6 +11,7 @@ const CountryCardStyles = styled.div`
     padding-bottom: 50px;
 
     .image-wrapper img {
+        height: 150px;
         max-width: 100%;
     }
 

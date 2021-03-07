@@ -6,6 +6,12 @@ const CountryPage = styled.div`
         font-size: 48px;
     }
 
+    hr {
+        width: 25%;
+        text-align: left;
+        margin-left: 0;
+    }
+
     .image-wrapper {
         display: block;
         text-align: center;
@@ -17,26 +23,36 @@ const CountryPage = styled.div`
         }
     }
 
+    @media (min-width: 768px) { 
+        .image-wrapper img {
+            max-height: 100%;
+            width: 250px;
+        } 
+    }
+
     .image-wrapper-border-country {
-        /* display: block;
-        text-align: center; */
         img {    
             transition: opacity 0.5s linear;
-    opacity: 1;
-    width: 100px;
-    max-height: 120px;
+            opacity: 1;
+            width: 100px;
+            height: 60px;
         }
     }
     
     .country-details {
-        border: 1px solid black;
         text-align: left;
-        padding: 0;
+        padding: 20px 0 20px 20px;
         display: block;
         margin-top: 30px;
         width: 100%;
+        background: #fff;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+        border-radius: 5px;
+
+        border: 1px solid #dedede; /* Maybe desktop only */
         div {
             line-height: 1.5;
+            font-size: 18px;
         }
     }
 
@@ -61,7 +77,14 @@ const CountryPage = styled.div`
     }
 
     .border-country {
-
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #dedede; /* Maybe desktop only */
+        div {
+            text-align: left;
+            line-height: 1.5;
+        }
     }
 `;
 

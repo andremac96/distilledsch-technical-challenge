@@ -4,7 +4,8 @@ const Layout = styled.div`
     max-width: 1100px;
     margin: 0px auto;
     padding: 1rem;
-
+    background-color: #${props => props.background || "fafafa"};
+    
     .wrapper {
         display: flex;
         justify-content: center;
