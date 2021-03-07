@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
-const CountryCardStyles = styled.main`
-
-    .image-wrapper img {
-        max-width: 100%;
-    }
-
-    margin: 20px;
+const CountryCardStyles = styled.div`
+    margin: 20px 0;
     max-width: 320px;
     background: #fff;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
@@ -14,6 +9,10 @@ const CountryCardStyles = styled.main`
     padding: 15px 30px 30px 30px;
     position: relative;
     padding-bottom: 50px;
+
+    .image-wrapper img {
+        max-width: 100%;
+    }
 
     .content {
         font-size: 18px;

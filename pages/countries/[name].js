@@ -1,25 +1,45 @@
-export default function Post({ country: { flag, name, capital, currencies, population, languages, }, borderCountries }) {
-  return (
-    <div>
-      {name}
-      <ul>
-        <li>{flag}</li>
-        <li>{capital}</li>
-        <li>{currencies[0].code}</li>
-        <li>{population}</li>
-        <li>{languages[0].name}</li>
-      </ul>
+import CountryPage from '../../styles/CountryPage';
+import Layout from '../../styles/Layout';
+import Link from 'next/link';
 
-      <h2>Borders:</h2>
-      {borderCountries.length
-        ? borderCountries.map(country => (
-          <div>
-            <p>{country.name}</p>
-            <p>{country.population}</p>
-            <p>{country.flag}</p>
-          </div>
-        )) : null}
-    </div>
+export default function Post({ country, borderCountries }) {
+  return (
+    <Layout>
+      <CountryPage>
+        <h1>Country App</h1>
+        <Link
+          href={{
+            pathname: "/",
+          }}
+        >
+        <button>Back</button>
+      </Link>
+        <div className="image-wrapper">
+            <img src={country.flag} />
+        </div>
+        <div className="country-details">
+          <div>Ireland</div>
+          <div>Capital: Dublin</div>
+          <div>Population: 4000000</div>
+          <div>Currency: EUR</div>
+          <div>Languages: Irish</div>
+        </div>
+        
+        <h2>Borders:</h2>
+        <div className="border-countries">
+          {borderCountries.length
+            ? borderCountries.map(country => (
+            <div className="border-country">
+              <div>{country.name}</div>
+              <div>{country.population}</div>
+              <div className="image-wrapper-border-country">
+                <img src={country.flag} />
+              </div>
+            </div>
+           )) : null}
+        </div>
+      </CountryPage>
+    </Layout>
   )
 }
 

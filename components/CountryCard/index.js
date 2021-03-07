@@ -3,13 +3,7 @@ import CountryCardStyles from '../../styles/CountryCardStyles';
 
 const CountryCard = ({ country: { name, capital, population, flag, regionalBlocs, currencies } }) => (
   <>
-    {/* <Link
-      href={{
-        pathname: "/countries/[name]",
-        query: { name: name.toLowerCase().replace(' ', '-') },
-      }}
-    ></Link> */}
-      <CountryCardStyles>
+    <CountryCardStyles>
       <div className="country-row">
       <h2>{name}</h2>
         <div className="image-wrapper">
@@ -20,11 +14,15 @@ const CountryCard = ({ country: { name, capital, population, flag, regionalBlocs
           <div>{regionalBlocs.map(bloc => bloc.name)} | Euro (€)</div>
         </div>
       </div>
-      <button>See More</button>
-      </CountryCardStyles>
-
-   
-    
+       <Link
+          href={{
+            pathname: "/countries/[name]",
+            query: { name: name.toLowerCase().replace(' ', '-') },
+          }}
+        >
+        <button>See More</button>
+      </Link>
+    </CountryCardStyles>  
   </>
 );
 

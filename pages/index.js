@@ -1,14 +1,23 @@
 import CountryCard from '../components/CountryCard';
 import Layout from '../styles/Layout';
+import { useEffect } from 'react';
 
 export default function Home({ countries }) {
+  // useEffect(() => {
+  //   console.log('using use effect')
+  // });
   return (
-    <Layout> 
-      {countries.map(country => (
-        <CountryCard country={country} key={country.name}/>
-      ))}
-    </Layout>
-
+    <main>
+      <Layout>
+        <div className="wrapper">
+          <div className="country-card-wrapper">
+            {countries.map(country => (
+              <CountryCard country={country} key={country.name}/>
+            ))}
+          </div>
+        </div>
+      </Layout>
+    </main>
   )
 }
 
