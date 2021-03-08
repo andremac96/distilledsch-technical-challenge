@@ -2,8 +2,11 @@ import CountryPage from '../../styles/CountryPage';
 import Layout from '../../styles/Layout';
 import Link from 'next/link';
 import {numberWithCommas} from '../../lib/utils';
+import { useRouter } from 'next/router'
 
 export default function Post({ country: {capital, flag, name, population, currencies, languages, regionalBlocs}, borderCountries }) {
+  const router = useRouter();
+
   return (
     <Layout background="fff">
       <CountryPage>
@@ -13,7 +16,7 @@ export default function Post({ country: {capital, flag, name, population, curren
             pathname: "/",
           }}
         >
-        <button>Back</button>
+        <button onClick={() => router.back()}>Back</button>
       </Link>
         <div className="image-wrapper">
             <img src={flag} />
@@ -45,10 +48,9 @@ export default function Post({ country: {capital, flag, name, population, curren
             ? borderCountries.map(country => (
             <div className="border-country">
             
-            <div className="image-wrapper-border-country">
+              <div className="image-wrapper-border-country">
                 <img src={country.flag} />
               </div>
-              <hr />
               <div><strong>{country.name.replace(/(\(.+\))/g, '')}</strong></div>
               <div>{numberWithCommas(country.population)}</div>
               <div>
@@ -59,9 +61,11 @@ export default function Post({ country: {capital, flag, name, population, curren
                   </span>
                 )) : null}
               </div>
+              {/* <button className="see-more">See More</button> */}
 
-             
+            
             </div>
+            
            )) : <h3 style={{textAlign: "left"}}>This country has no border countries!</h3>}
         </div>
       </CountryPage>

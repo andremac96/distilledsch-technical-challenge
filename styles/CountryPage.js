@@ -31,14 +31,20 @@ const CountryPage = styled.div`
     }
 
     .image-wrapper-border-country {
+        margin-bottom: 20px;
         img {    
-            transition: opacity 0.5s linear;
-            opacity: 1;
             width: 100px;
             height: 60px;
         }
     }
-    
+
+    @media (min-width: 1024px) {  
+        .image-wrapper-border-country img {
+            width: 225px;
+            height: 150px;
+        }
+    }
+
     .country-details {
         text-align: left;
         padding: 20px 0 20px 20px;
@@ -68,6 +74,19 @@ const CountryPage = styled.div`
         margin-bottom: 25px;
     }
 
+    .see-more {
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #17a974;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
 
     .border-countries {
         display: grid;

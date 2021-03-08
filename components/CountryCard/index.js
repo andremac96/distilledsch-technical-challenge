@@ -7,31 +7,32 @@ const CountryCard = ({ country: { name, capital, population, flag, regionalBlocs
     <>
       <CountryCardStyles>
         <div className="country-row">
-        <h2>{name}</h2>
+        <h2 className="country-name">{name}</h2>
           <div className="image-wrapper">
             <img src={flag} />
           </div>
-          <div className="content">
+          <div className="content country-information">
             <div>
-              <i class="fa fa-flag" aria-hidden="true"></i>
-              {capital ? ` ${capital} | ` : null } 
-              <i class="fa fa-money" aria-hidden="true"></i>
-              { currencies.length ? ` ${currencies[0].name}` : null}
+              {capital ? <span><i className="fa fa-flag" aria-hidden="true"></i>{capital}</span> : null } 
             </div>
             <div>
-              <i class="fa fa-user" aria-hidden="true"></i>
-              {numberWithCommas(population)}
+              {currencies.length ? <span><i className="fa fa-money-bill-alt" aria-hidden="true"></i>{currencies[0].code} {currencies[0].symbol ? `(${currencies[0].symbol})` : null}</span>: null}
+            </div>
+            <div>
+              {population ? <span><i className="fa fa-user" aria-hidden="true"></i>{numberWithCommas(population)}</span> : null }
             </div>
           </div>
         </div>
+        <div className="buttonList">
         <Link
             href={{
               pathname: "/countries/[name]",
               query: { name: name.toLowerCase().replace(' ', '-') },
             }}
-          >
+           >
           <button>See More</button>
         </Link>
+        </div>
       </CountryCardStyles>  
     </>
   )
