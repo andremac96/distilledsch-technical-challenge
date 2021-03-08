@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import CountryCardStyles from '../../styles/CountryCardStyles';
+import CountryCardStyles from '../styles/CountryCardStyles';
 import {numberWithCommas} from '../../lib/utils';
+import Link from 'next/link';
 
 const CountryCard = ({ country: { name, capital, population, flag, regionalBlocs, currencies } }) => {
   return (
     <>
       <CountryCardStyles>
         <div className="country-row">
-        <h2 className="country-name">{name}</h2>
+          <h2 className="country-name">{name}</h2>
           <div className="image-wrapper">
             <img src={flag} />
           </div>
@@ -24,14 +24,14 @@ const CountryCard = ({ country: { name, capital, population, flag, regionalBlocs
           </div>
         </div>
         <div className="buttonList">
-        <Link
+          <Link
             href={{
               pathname: "/countries/[name]",
               query: { name: name.toLowerCase().replace(' ', '-') },
             }}
-           >
-          <button>See More</button>
-        </Link>
+          >
+            <button>See More</button>
+          </Link>
         </div>
       </CountryCardStyles>  
     </>

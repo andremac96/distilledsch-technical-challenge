@@ -1,20 +1,21 @@
-import CountryCard from '../components/CountryCard';
-import Layout from '../styles/Layout';
 import { useEffect, useState } from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
+
+import CountryCard from '../components/CountryCard';
+import Layout from '../components/styles/Layout';
 
 export default function Home({ countryData }) {
   const [countries, setCountries] = useState(countryData);
-  const [population, setPopulation] = useState(null);
+  // const [population, setPopulation] = useState(null);
 
-  function handleChange(e){
-    const pop = e.target.value;
-    console.log(pop)
-    const newCountries = countryData.filter(country => country.population > pop);
+  // function handleChange(e){
+  //   const pop = e.target.value;
+  //   console.log(pop)
+  //   const newCountries = countryData.filter(country => country.population > pop);
 
-    setCountries(newCountries);
-    // console.log(newCountries);
-  }
+  //   setCountries(newCountries);
+  //   // console.log(newCountries);
+  // }
 
   return (
     <main>
@@ -25,7 +26,7 @@ export default function Home({ countryData }) {
 
       </Head>
       <Layout>
-      <input onChange={(e) => handleChange(e)} />
+      {/* <input onChange={(e) => handleChange(e)} /> */}
 
         <div className="wrapper">
           <div className="country-card-wrapper">
