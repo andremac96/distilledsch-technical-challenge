@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 
 import CountryCard from '../components/CountryCard';
@@ -6,16 +6,17 @@ import Layout from '../components/Layout';
 
 export default function Home({ countryData }) {
   const [countries, setCountries] = useState(countryData);
-  // const [population, setPopulation] = useState(null);
 
-  // function handleChange(e){
-  //   const pop = e.target.value;
-  //   console.log(pop)
-  //   const newCountries = countryData.filter(country => country.population > pop);
+  function handleSearch(e){
+    const term = e.target.value.toLowerCase();
 
-  //   setCountries(newCountries);
-  //   // console.log(newCountries);
-  // }
+    if(!term || term.length < 1){
+      setCountries(countryData);
+    }
+
+    const filteredCountries = countryData.filter(country => country.name.toLowerCase().includes(term));
+    setCountries(filteredCountries);
+  }
 
   return (
     <main>
@@ -26,13 +27,17 @@ export default function Home({ countryData }) {
 
       </Head>
       <Layout>
-      {/* <input onChange={(e) => handleChange(e)} /> */}
+        <div className="search">
+          <input 
+            onChange={(e) => handleSearch(e)} />
+        </div>
 
         <div className="wrapper">
           <div className="country-card-wrapper">
-            {countries.map(country => (
+          
+            {countries.length ? countries.map(country => (
               <CountryCard country={country} key={country.name}/>
-            ))}
+            )) : <p>No countires found</p>}
           </div>
         </div>
       </Layout>

@@ -29,6 +29,23 @@ const LayoutStyles = styled.div`
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
+
+    .search {
+        text-align: center;
+
+        input {
+            font-size: 18px;
+            margin-bottom: 1rem;
+            padding: 0.50rem 0;
+            width: 75%;
+        }
+
+        @media (min-width: 1024px) { 
+            input {
+                width: 33%;
+            }
+        }
+    }
 `;
 
 export default LayoutStyles;
