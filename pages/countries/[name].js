@@ -1,7 +1,7 @@
 import BorderCountryCard from '../../components/BorderCountryCard';
 import CountryDetailsPanel from '../../components/CountryDetailsPanel';
 import CountryPage from '../../components/styles/CountryPage';
-import Layout from '../../components/styles/Layout';
+import Layout from '../../components/Layout';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router'

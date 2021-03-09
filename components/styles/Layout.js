@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Layout = styled.div`
+const LayoutStyles = styled.div`
     max-width: 1100px;
     margin: 0px auto;
     padding: 1rem;
@@ -31,4 +31,4 @@ const Layout = styled.div`
     }
 `;
 
-export default Layout;
+export default LayoutStyles;

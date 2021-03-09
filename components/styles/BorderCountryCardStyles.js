@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-const CountryCardStyles = styled.div`
+const BorderCountryCardStyles = styled.div`
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%);
     background: #fff;
     padding: 20px;
     border: 1px solid #dedede; /* Maybe desktop only */
+
+    &:hover {
+        background-color: #fefcfc;
+        border: 1px solid #000;
+        cursor: pointer;
+    }
     
     div {
         text-align: left;
@@ -27,4 +33,4 @@ const CountryCardStyles = styled.div`
     }
 `;
 
-export default CountryCardStyles;
+export default BorderCountryCardStyles;

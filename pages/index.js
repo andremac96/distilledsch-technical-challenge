@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import CountryCard from '../components/CountryCard';
-import Layout from '../components/styles/Layout';
+import Layout from '../components/Layout';
 
 export default function Home({ countryData }) {
   const [countries, setCountries] = useState(countryData);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import CountryCard from '../index';
+import CountryCard from '../components/CountryCard';
 
 const fakeItem = {
     name: "Ireland",
