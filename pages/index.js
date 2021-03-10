@@ -29,7 +29,9 @@ export default function Home({ countryData }) {
       <Layout>
         <div className="search">
           <input 
-            onChange={(e) => handleSearch(e)} />
+            onChange={(e) => handleSearch(e)}
+            placeholder="Filter by name"
+          />
         </div>
 
         <div className="wrapper">
